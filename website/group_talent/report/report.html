@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+</title>
+<style>
+	body{
+		border-color:#D8D4DB;
+		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	}
+.topnav {
+  
+  overflow: hidden;
+  background-color: #333;
+	
+}
+
+.topnav a {
+  float: left;
+  color: gray;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+
+}
+
+.topnav a:hover {
+  
+  color: #CFCFCF;
+}
+
+.topnav a.active {
+  
+  color: white;
+	font-size:20px;
+}	
+.topnav a.home {
+  
+  color: white;
+	
+}	
+	
+	
+input[type=text], select {
+  width: 10%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=button] {
+  width: 20%;
+  background-color: #5C5C5C;
+  color: white;
+  padding: 10px 7px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+	text-align:center;
+}
+
+input[type=button]:hover {
+  background-color: #CDD0F4;
+	color:#4D4A4A;
+}
+
+	
+	
+#report {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin: auto;
+text-align:center;
+}
+
+#report td, #report th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#report tr:nth-child(odd){background-color: #f2f2f2;}
+
+#report tr:hover {background-color: #ddd;}
+
+#report th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #696969;
+  color: white;
+	text-align:center;
+}
+	
+	
+	
+	
+	
+</style>
+<head>
+<body>
+<div class="topnav">
+  <a class="active" href="#">HKCS</a>
+  <a class="home"href="#">Home</a>
+  <a href="#">Manange Goods</a>
+  <a href="#">Report</a>
+	<a href="#">Delete order</a>
+</div>
+
+ <!--<?php
+	echo "<h2>Your ID is $_COOKIE[$id]<h2><br>)"
+?>-->
+<div id="form1" class="center" style="border-radius: 5px;
+  background-color: #f2f4f8;
+  padding: 20px;
+  margin: auto;
+  width: 60%;">
+ <div style="font-size:24px; font-weight: bold"><center><b>Click the button to Generate the Report</b></center></div>
+    <center><input type="button" value="Generate the report"></center>
+  </form>
+</div>
+<p></p>
+	<!--Click the button will generate the report-->
+	<table id="report">
+  <tr>
+	    <th>Order ID</th>
+	    <th>Order Date</th>
+	    <th>Customer ID</th>
+		<th>Customer Name</th>
+		<th>Shop address</th>
+		<th>Goods Number</th>
+		<th>goods name</th>
+		<th>Quantity</th>
+	  	<th>Order status</th>
+		<th>Selling price of each goods</th>
+		<th>Total Price</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+	  <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+	  <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+	  <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+  </tr>
+  </tr>
+  <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+	  <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+	  <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+	  <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+  </tr>
+</table>
+</body>
+</html>
