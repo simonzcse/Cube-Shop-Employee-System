@@ -1,0 +1,913 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="project_manangementModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bookedshowcase">
+          <Key>
+            <PropertyRef Name="BookingID" />
+          </Key>
+          <Property Name="ShowcaseID" Type="int" Nullable="false" />
+          <Property Name="TenantID" Type="int" Nullable="false" />
+          <Property Name="BookingID" Type="int" Nullable="false" />
+          <Property Name="BookingStartDate" Type="date" Nullable="false" />
+          <Property Name="BookingTermTo" Type="date" Nullable="false" />
+          <Property Name="Prepaid_credit" Type="int" Nullable="false" />
+          <Property Name="PrepaidDate" Type="date" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="DateTIMEofcreation" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Phone" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Customer_Username" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Customer_password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dailyworkingrecord">
+          <Key>
+            <PropertyRef Name="StaffID" />
+            <PropertyRef Name="Date_of_workout" />
+          </Key>
+          <Property Name="StaffID" Type="int" Nullable="false" />
+          <Property Name="WorkedHour" Type="int" />
+          <Property Name="Date_of_workout" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="TenantID" Type="int" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="ProductFee" Type="int" Nullable="false" />
+          <Property Name="Discount" Type="int" Nullable="false" />
+          <Property Name="PrivateLabelItems" Type="bool" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="salesrecord">
+          <Key>
+            <PropertyRef Name="SalesID" />
+          </Key>
+          <Property Name="SalesID" Type="int" Nullable="false" />
+          <Property Name="SalesDATETIME" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StoreID" Type="int" Nullable="false" />
+          <Property Name="TotalSalesAmount" Type="int" Nullable="false" />
+          <Property Name="Tender" Type="int" Nullable="false" />
+          <Property Name="Changecost" Type="int" Nullable="false" />
+          <Property Name="StaffID" Type="int" Nullable="false" />
+          <Property Name="Paymethod" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="salesrecord_product">
+          <Key>
+            <PropertyRef Name="SalesID" />
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="SalesID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="ShowcaseID" Type="int" Nullable="false" />
+          <Property Name="Qty" Type="int" Nullable="false" />
+          <Property Name="eachFee" Type="int" Nullable="false" />
+          <Property Name="Discount" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="showcase">
+          <Key>
+            <PropertyRef Name="ShowcaseID" />
+          </Key>
+          <Property Name="ShowcaseID" Type="int" Nullable="false" />
+          <Property Name="StoreID" Type="int" Nullable="false" />
+          <Property Name="Standard_RentFee" Type="int" Nullable="false" />
+          <Property Name="ShowcaseType" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="adv_description" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="showcase_product">
+          <Key>
+            <PropertyRef Name="ShowcaseID" />
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ShowcaseID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="stock" Type="int" Nullable="false" />
+          <Property Name="product_description" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="showcase_rentrecord">
+          <Key>
+            <PropertyRef Name="rentrecordID" />
+          </Key>
+          <Property Name="rentrecordID" Type="int" Nullable="false" />
+          <Property Name="ShowcaseID" Type="int" Nullable="false" />
+          <Property Name="TenantID" Type="int" Nullable="false" />
+          <Property Name="LeaseStartDate" Type="date" Nullable="false" />
+          <Property Name="LeaseTermTo" Type="date" Nullable="false" />
+          <Property Name="RentFee" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="staff">
+          <Key>
+            <PropertyRef Name="StaffID" />
+          </Key>
+          <Property Name="StaffID" Type="int" Nullable="false" />
+          <Property Name="Staff_Name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Staff_HKIDNumber" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Staff_Username" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Staff_password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="StaffPosition" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" Nullable="false" />
+          <Property Name="HourSalary" Type="int" Nullable="false" />
+          <Property Name="HireDate" Type="date" Nullable="false" />
+          <Property Name="isFulltime" Type="bool" Nullable="false" />
+        </EntityType>
+        <EntityType Name="store">
+          <Key>
+            <PropertyRef Name="StoreID" />
+          </Key>
+          <Property Name="StoreID" Type="int" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Phone" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tenant">
+          <Key>
+            <PropertyRef Name="TenantID" />
+          </Key>
+          <Property Name="TenantID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Phone" Type="int" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="DateTimeofCreation" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" />
+          <Property Name="Tenant_Username" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Tenant_Password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" Nullable="false" />
+          <Property Name="Tenant_HKIDNumber" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CommisionRate" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Bookedshowcase_ShowcaseID">
+          <End Role="showcase" Type="Self.showcase" Multiplicity="1" />
+          <End Role="bookedshowcase" Type="Self.bookedshowcase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="showcase">
+              <PropertyRef Name="ShowcaseID" />
+            </Principal>
+            <Dependent Role="bookedshowcase">
+              <PropertyRef Name="ShowcaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bookedshowcase_TenantID">
+          <End Role="tenant" Type="Self.tenant" Multiplicity="1" />
+          <End Role="bookedshowcase" Type="Self.bookedshowcase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tenant">
+              <PropertyRef Name="TenantID" />
+            </Principal>
+            <Dependent Role="bookedshowcase">
+              <PropertyRef Name="TenantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DailyWorkingRecord_StaffID">
+          <End Role="staff" Type="Self.staff" Multiplicity="1" />
+          <End Role="dailyworkingrecord" Type="Self.dailyworkingrecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="staff">
+              <PropertyRef Name="StaffID" />
+            </Principal>
+            <Dependent Role="dailyworkingrecord">
+              <PropertyRef Name="StaffID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PK_Showcase_product_ProductID">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="showcase_product" Type="Self.showcase_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="showcase_product">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_TenantID">
+          <End Role="tenant" Type="Self.tenant" Multiplicity="0..1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tenant">
+              <PropertyRef Name="TenantID" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="TenantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesRecord_Product_ProductID">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="salesrecord_product" Type="Self.salesrecord_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="salesrecord_product">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesRecord_Product_SalesID">
+          <End Role="salesrecord" Type="Self.salesrecord" Multiplicity="1" />
+          <End Role="salesrecord_product" Type="Self.salesrecord_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="salesrecord">
+              <PropertyRef Name="SalesID" />
+            </Principal>
+            <Dependent Role="salesrecord_product">
+              <PropertyRef Name="SalesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesRecord_StaffID">
+          <End Role="staff" Type="Self.staff" Multiplicity="1" />
+          <End Role="salesrecord" Type="Self.salesrecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="staff">
+              <PropertyRef Name="StaffID" />
+            </Principal>
+            <Dependent Role="salesrecord">
+              <PropertyRef Name="StaffID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Showcase_product_ShowcaseID">
+          <End Role="showcase" Type="Self.showcase" Multiplicity="1" />
+          <End Role="showcase_product" Type="Self.showcase_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="showcase">
+              <PropertyRef Name="ShowcaseID" />
+            </Principal>
+            <Dependent Role="showcase_product">
+              <PropertyRef Name="ShowcaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Showcase_rentrecord_ShowcaseID">
+          <End Role="showcase" Type="Self.showcase" Multiplicity="1" />
+          <End Role="showcase_rentrecord" Type="Self.showcase_rentrecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="showcase">
+              <PropertyRef Name="ShowcaseID" />
+            </Principal>
+            <Dependent Role="showcase_rentrecord">
+              <PropertyRef Name="ShowcaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Showcase_rentrecord_TenantID">
+          <End Role="tenant" Type="Self.tenant" Multiplicity="1" />
+          <End Role="showcase_rentrecord" Type="Self.showcase_rentrecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tenant">
+              <PropertyRef Name="TenantID" />
+            </Principal>
+            <Dependent Role="showcase_rentrecord">
+              <PropertyRef Name="TenantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Showcase_StoreID">
+          <End Role="store" Type="Self.store" Multiplicity="1" />
+          <End Role="showcase" Type="Self.showcase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="store">
+              <PropertyRef Name="StoreID" />
+            </Principal>
+            <Dependent Role="showcase">
+              <PropertyRef Name="StoreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="project_manangementModelStoreContainer">
+          <EntitySet Name="bookedshowcase" EntityType="Self.bookedshowcase" Schema="project_manangement" store:Type="Tables" />
+          <EntitySet Name="customer" EntityType="Self.customer" Schema="project_manangement" store:Type="Tables" />
+          <EntitySet Name="dailyworkingrecord" EntityType="Self.dailyworkingrecord" Schema="project_manangement" store:Type="Tables" />
+          <EntitySet Name="product" EntityType="Self.product" Schema="project_manangement" store:Type="Tables" />
+          <EntitySet Name="salesrecord" EntityType="Self.salesrecord" Schema="project_manangement" store:Type="Tables" />
+          <EntitySet Name="salesrecord_product" EntityType="Self.salesrecord_product" Schema="project_manangement" store:Type="Tables" />
+          <EntitySet Name="showcase" EntityType="Self.showcase" Schema="project_manangement" store:Type="Tables" />
+          <EntitySet Name="showcase_product" EntityType="Self.showcase_product" Schema="project_manangement" store:Type="Tables" />
+          <EntitySet Name="showcase_rentrecord" EntityType="Self.showcase_rentrecord" Schema="project_manangement" store:Type="Tables" />
+          <EntitySet Name="staff" EntityType="Self.staff" Schema="project_manangement" store:Type="Tables" />
+          <EntitySet Name="store" EntityType="Self.store" Schema="project_manangement" store:Type="Tables" />
+          <EntitySet Name="tenant" EntityType="Self.tenant" Schema="project_manangement" store:Type="Tables" />
+          <AssociationSet Name="FK_Bookedshowcase_ShowcaseID" Association="Self.FK_Bookedshowcase_ShowcaseID">
+            <End Role="showcase" EntitySet="showcase" />
+            <End Role="bookedshowcase" EntitySet="bookedshowcase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bookedshowcase_TenantID" Association="Self.FK_Bookedshowcase_TenantID">
+            <End Role="tenant" EntitySet="tenant" />
+            <End Role="bookedshowcase" EntitySet="bookedshowcase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DailyWorkingRecord_StaffID" Association="Self.FK_DailyWorkingRecord_StaffID">
+            <End Role="staff" EntitySet="staff" />
+            <End Role="dailyworkingrecord" EntitySet="dailyworkingrecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PK_Showcase_product_ProductID" Association="Self.FK_PK_Showcase_product_ProductID">
+            <End Role="product" EntitySet="product" />
+            <End Role="showcase_product" EntitySet="showcase_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_TenantID" Association="Self.FK_Product_TenantID">
+            <End Role="tenant" EntitySet="tenant" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesRecord_Product_ProductID" Association="Self.FK_SalesRecord_Product_ProductID">
+            <End Role="product" EntitySet="product" />
+            <End Role="salesrecord_product" EntitySet="salesrecord_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesRecord_Product_SalesID" Association="Self.FK_SalesRecord_Product_SalesID">
+            <End Role="salesrecord" EntitySet="salesrecord" />
+            <End Role="salesrecord_product" EntitySet="salesrecord_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesRecord_StaffID" Association="Self.FK_SalesRecord_StaffID">
+            <End Role="staff" EntitySet="staff" />
+            <End Role="salesrecord" EntitySet="salesrecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Showcase_product_ShowcaseID" Association="Self.FK_Showcase_product_ShowcaseID">
+            <End Role="showcase" EntitySet="showcase" />
+            <End Role="showcase_product" EntitySet="showcase_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Showcase_rentrecord_ShowcaseID" Association="Self.FK_Showcase_rentrecord_ShowcaseID">
+            <End Role="showcase" EntitySet="showcase" />
+            <End Role="showcase_rentrecord" EntitySet="showcase_rentrecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Showcase_rentrecord_TenantID" Association="Self.FK_Showcase_rentrecord_TenantID">
+            <End Role="tenant" EntitySet="tenant" />
+            <End Role="showcase_rentrecord" EntitySet="showcase_rentrecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Showcase_StoreID" Association="Self.FK_Showcase_StoreID">
+            <End Role="store" EntitySet="store" />
+            <End Role="showcase" EntitySet="showcase" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="project_manangementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="bookedshowcase">
+          <Key>
+            <PropertyRef Name="BookingID" />
+          </Key>
+          <Property Name="ShowcaseID" Type="Int32" Nullable="false" />
+          <Property Name="TenantID" Type="Int32" Nullable="false" />
+          <Property Name="BookingID" Type="Int32" Nullable="false" />
+          <Property Name="BookingStartDate" Type="DateTime" Nullable="false" />
+          <Property Name="BookingTermTo" Type="DateTime" Nullable="false" />
+          <Property Name="Prepaid_credit" Type="Int32" Nullable="false" />
+          <Property Name="PrepaidDate" Type="DateTime" />
+          <NavigationProperty Name="showcase" Relationship="Self.FK_Bookedshowcase_ShowcaseID" FromRole="bookedshowcase" ToRole="showcase" />
+          <NavigationProperty Name="tenant" Relationship="Self.FK_Bookedshowcase_TenantID" FromRole="bookedshowcase" ToRole="tenant" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="DateTIMEofcreation" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Customer_Username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Customer_password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dailyworkingrecord">
+          <Key>
+            <PropertyRef Name="StaffID" />
+            <PropertyRef Name="Date_of_workout" />
+          </Key>
+          <Property Name="StaffID" Type="Int32" Nullable="false" />
+          <Property Name="WorkedHour" Type="Int32" />
+          <Property Name="Date_of_workout" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="staff" Relationship="Self.FK_DailyWorkingRecord_StaffID" FromRole="dailyworkingrecord" ToRole="staff" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenantID" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="ProductFee" Type="Int32" Nullable="false" />
+          <Property Name="Discount" Type="Int32" Nullable="false" />
+          <Property Name="PrivateLabelItems" Type="Boolean" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="showcase_product" Relationship="Self.FK_PK_Showcase_product_ProductID" FromRole="product" ToRole="showcase_product" />
+          <NavigationProperty Name="tenant" Relationship="Self.FK_Product_TenantID" FromRole="product" ToRole="tenant" />
+          <NavigationProperty Name="salesrecord_product" Relationship="Self.FK_SalesRecord_Product_ProductID" FromRole="product" ToRole="salesrecord_product" />
+        </EntityType>
+        <EntityType Name="salesrecord">
+          <Key>
+            <PropertyRef Name="SalesID" />
+          </Key>
+          <Property Name="SalesID" Type="Int32" Nullable="false" />
+          <Property Name="SalesDATETIME" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StoreID" Type="Int32" Nullable="false" />
+          <Property Name="TotalSalesAmount" Type="Int32" Nullable="false" />
+          <Property Name="Tender" Type="Int32" Nullable="false" />
+          <Property Name="Changecost" Type="Int32" Nullable="false" />
+          <Property Name="StaffID" Type="Int32" Nullable="false" />
+          <Property Name="Paymethod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="salesrecord_product" Relationship="Self.FK_SalesRecord_Product_SalesID" FromRole="salesrecord" ToRole="salesrecord_product" />
+          <NavigationProperty Name="staff" Relationship="Self.FK_SalesRecord_StaffID" FromRole="salesrecord" ToRole="staff" />
+        </EntityType>
+        <EntityType Name="salesrecord_product">
+          <Key>
+            <PropertyRef Name="SalesID" />
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="SalesID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="ShowcaseID" Type="Int32" Nullable="false" />
+          <Property Name="Qty" Type="Int32" Nullable="false" />
+          <Property Name="eachFee" Type="Int32" Nullable="false" />
+          <Property Name="Discount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="product" Relationship="Self.FK_SalesRecord_Product_ProductID" FromRole="salesrecord_product" ToRole="product" />
+          <NavigationProperty Name="salesrecord" Relationship="Self.FK_SalesRecord_Product_SalesID" FromRole="salesrecord_product" ToRole="salesrecord" />
+        </EntityType>
+        <EntityType Name="showcase">
+          <Key>
+            <PropertyRef Name="ShowcaseID" />
+          </Key>
+          <Property Name="ShowcaseID" Type="Int32" Nullable="false" />
+          <Property Name="StoreID" Type="Int32" Nullable="false" />
+          <Property Name="Standard_RentFee" Type="Int32" Nullable="false" />
+          <Property Name="ShowcaseType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="adv_description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="bookedshowcases" Relationship="Self.FK_Bookedshowcase_ShowcaseID" FromRole="showcase" ToRole="bookedshowcase" />
+          <NavigationProperty Name="showcase_product" Relationship="Self.FK_Showcase_product_ShowcaseID" FromRole="showcase" ToRole="showcase_product" />
+          <NavigationProperty Name="showcase_rentrecord" Relationship="Self.FK_Showcase_rentrecord_ShowcaseID" FromRole="showcase" ToRole="showcase_rentrecord" />
+          <NavigationProperty Name="store" Relationship="Self.FK_Showcase_StoreID" FromRole="showcase" ToRole="store" />
+        </EntityType>
+        <EntityType Name="showcase_product">
+          <Key>
+            <PropertyRef Name="ShowcaseID" />
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ShowcaseID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="stock" Type="Int32" Nullable="false" />
+          <Property Name="product_description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="product" Relationship="Self.FK_PK_Showcase_product_ProductID" FromRole="showcase_product" ToRole="product" />
+          <NavigationProperty Name="showcase" Relationship="Self.FK_Showcase_product_ShowcaseID" FromRole="showcase_product" ToRole="showcase" />
+        </EntityType>
+        <EntityType Name="showcase_rentrecord">
+          <Key>
+            <PropertyRef Name="rentrecordID" />
+          </Key>
+          <Property Name="rentrecordID" Type="Int32" Nullable="false" />
+          <Property Name="ShowcaseID" Type="Int32" Nullable="false" />
+          <Property Name="TenantID" Type="Int32" Nullable="false" />
+          <Property Name="LeaseStartDate" Type="DateTime" Nullable="false" />
+          <Property Name="LeaseTermTo" Type="DateTime" Nullable="false" />
+          <Property Name="RentFee" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="showcase" Relationship="Self.FK_Showcase_rentrecord_ShowcaseID" FromRole="showcase_rentrecord" ToRole="showcase" />
+          <NavigationProperty Name="tenant" Relationship="Self.FK_Showcase_rentrecord_TenantID" FromRole="showcase_rentrecord" ToRole="tenant" />
+        </EntityType>
+        <EntityType Name="staff">
+          <Key>
+            <PropertyRef Name="StaffID" />
+          </Key>
+          <Property Name="StaffID" Type="Int32" Nullable="false" />
+          <Property Name="Staff_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Staff_HKIDNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Staff_Username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Staff_password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StaffPosition" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" />
+          <Property Name="HourSalary" Type="Int32" Nullable="false" />
+          <Property Name="HireDate" Type="DateTime" Nullable="false" />
+          <Property Name="isFulltime" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="dailyworkingrecords" Relationship="Self.FK_DailyWorkingRecord_StaffID" FromRole="staff" ToRole="dailyworkingrecord" />
+          <NavigationProperty Name="salesrecords" Relationship="Self.FK_SalesRecord_StaffID" FromRole="staff" ToRole="salesrecord" />
+        </EntityType>
+        <EntityType Name="store">
+          <Key>
+            <PropertyRef Name="StoreID" />
+          </Key>
+          <Property Name="StoreID" Type="Int32" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="showcases" Relationship="Self.FK_Showcase_StoreID" FromRole="store" ToRole="showcase" />
+        </EntityType>
+        <EntityType Name="tenant">
+          <Key>
+            <PropertyRef Name="TenantID" />
+          </Key>
+          <Property Name="TenantID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateTimeofCreation" Type="DateTime" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tenant_Username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tenant_Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" />
+          <Property Name="Tenant_HKIDNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CommisionRate" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="bookedshowcases" Relationship="Self.FK_Bookedshowcase_TenantID" FromRole="tenant" ToRole="bookedshowcase" />
+          <NavigationProperty Name="products" Relationship="Self.FK_Product_TenantID" FromRole="tenant" ToRole="product" />
+          <NavigationProperty Name="showcase_rentrecord" Relationship="Self.FK_Showcase_rentrecord_TenantID" FromRole="tenant" ToRole="showcase_rentrecord" />
+        </EntityType>
+        <Association Name="FK_Bookedshowcase_ShowcaseID">
+          <End Role="showcase" Type="Self.showcase" Multiplicity="1" />
+          <End Role="bookedshowcase" Type="Self.bookedshowcase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="showcase">
+              <PropertyRef Name="ShowcaseID" />
+            </Principal>
+            <Dependent Role="bookedshowcase">
+              <PropertyRef Name="ShowcaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bookedshowcase_TenantID">
+          <End Role="tenant" Type="Self.tenant" Multiplicity="1" />
+          <End Role="bookedshowcase" Type="Self.bookedshowcase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tenant">
+              <PropertyRef Name="TenantID" />
+            </Principal>
+            <Dependent Role="bookedshowcase">
+              <PropertyRef Name="TenantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DailyWorkingRecord_StaffID">
+          <End Role="staff" Type="Self.staff" Multiplicity="1" />
+          <End Role="dailyworkingrecord" Type="Self.dailyworkingrecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="staff">
+              <PropertyRef Name="StaffID" />
+            </Principal>
+            <Dependent Role="dailyworkingrecord">
+              <PropertyRef Name="StaffID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PK_Showcase_product_ProductID">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="showcase_product" Type="Self.showcase_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="showcase_product">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_TenantID">
+          <End Role="tenant" Type="Self.tenant" Multiplicity="0..1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tenant">
+              <PropertyRef Name="TenantID" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="TenantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesRecord_Product_ProductID">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="salesrecord_product" Type="Self.salesrecord_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="salesrecord_product">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesRecord_Product_SalesID">
+          <End Role="salesrecord" Type="Self.salesrecord" Multiplicity="1" />
+          <End Role="salesrecord_product" Type="Self.salesrecord_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="salesrecord">
+              <PropertyRef Name="SalesID" />
+            </Principal>
+            <Dependent Role="salesrecord_product">
+              <PropertyRef Name="SalesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesRecord_StaffID">
+          <End Role="staff" Type="Self.staff" Multiplicity="1" />
+          <End Role="salesrecord" Type="Self.salesrecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="staff">
+              <PropertyRef Name="StaffID" />
+            </Principal>
+            <Dependent Role="salesrecord">
+              <PropertyRef Name="StaffID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Showcase_product_ShowcaseID">
+          <End Role="showcase" Type="Self.showcase" Multiplicity="1" />
+          <End Role="showcase_product" Type="Self.showcase_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="showcase">
+              <PropertyRef Name="ShowcaseID" />
+            </Principal>
+            <Dependent Role="showcase_product">
+              <PropertyRef Name="ShowcaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Showcase_rentrecord_ShowcaseID">
+          <End Role="showcase" Type="Self.showcase" Multiplicity="1" />
+          <End Role="showcase_rentrecord" Type="Self.showcase_rentrecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="showcase">
+              <PropertyRef Name="ShowcaseID" />
+            </Principal>
+            <Dependent Role="showcase_rentrecord">
+              <PropertyRef Name="ShowcaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Showcase_StoreID">
+          <End Role="store" Type="Self.store" Multiplicity="1" />
+          <End Role="showcase" Type="Self.showcase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="store">
+              <PropertyRef Name="StoreID" />
+            </Principal>
+            <Dependent Role="showcase">
+              <PropertyRef Name="StoreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Showcase_rentrecord_TenantID">
+          <End Role="tenant" Type="Self.tenant" Multiplicity="1" />
+          <End Role="showcase_rentrecord" Type="Self.showcase_rentrecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tenant">
+              <PropertyRef Name="TenantID" />
+            </Principal>
+            <Dependent Role="showcase_rentrecord">
+              <PropertyRef Name="TenantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="project_manangementEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="bookedshowcases" EntityType="Self.bookedshowcase" />
+          <EntitySet Name="customers" EntityType="Self.customer" />
+          <EntitySet Name="dailyworkingrecords" EntityType="Self.dailyworkingrecord" />
+          <EntitySet Name="products" EntityType="Self.product" />
+          <EntitySet Name="salesrecords" EntityType="Self.salesrecord" />
+          <EntitySet Name="salesrecord_product" EntityType="Self.salesrecord_product" />
+          <EntitySet Name="showcases" EntityType="Self.showcase" />
+          <EntitySet Name="showcase_product" EntityType="Self.showcase_product" />
+          <EntitySet Name="showcase_rentrecord" EntityType="Self.showcase_rentrecord" />
+          <EntitySet Name="staffs" EntityType="Self.staff" />
+          <EntitySet Name="stores" EntityType="Self.store" />
+          <EntitySet Name="tenants" EntityType="Self.tenant" />
+          <AssociationSet Name="FK_Bookedshowcase_ShowcaseID" Association="Self.FK_Bookedshowcase_ShowcaseID">
+            <End Role="showcase" EntitySet="showcases" />
+            <End Role="bookedshowcase" EntitySet="bookedshowcases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bookedshowcase_TenantID" Association="Self.FK_Bookedshowcase_TenantID">
+            <End Role="tenant" EntitySet="tenants" />
+            <End Role="bookedshowcase" EntitySet="bookedshowcases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DailyWorkingRecord_StaffID" Association="Self.FK_DailyWorkingRecord_StaffID">
+            <End Role="staff" EntitySet="staffs" />
+            <End Role="dailyworkingrecord" EntitySet="dailyworkingrecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PK_Showcase_product_ProductID" Association="Self.FK_PK_Showcase_product_ProductID">
+            <End Role="product" EntitySet="products" />
+            <End Role="showcase_product" EntitySet="showcase_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_TenantID" Association="Self.FK_Product_TenantID">
+            <End Role="tenant" EntitySet="tenants" />
+            <End Role="product" EntitySet="products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesRecord_Product_ProductID" Association="Self.FK_SalesRecord_Product_ProductID">
+            <End Role="product" EntitySet="products" />
+            <End Role="salesrecord_product" EntitySet="salesrecord_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesRecord_Product_SalesID" Association="Self.FK_SalesRecord_Product_SalesID">
+            <End Role="salesrecord" EntitySet="salesrecords" />
+            <End Role="salesrecord_product" EntitySet="salesrecord_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesRecord_StaffID" Association="Self.FK_SalesRecord_StaffID">
+            <End Role="staff" EntitySet="staffs" />
+            <End Role="salesrecord" EntitySet="salesrecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Showcase_product_ShowcaseID" Association="Self.FK_Showcase_product_ShowcaseID">
+            <End Role="showcase" EntitySet="showcases" />
+            <End Role="showcase_product" EntitySet="showcase_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Showcase_rentrecord_ShowcaseID" Association="Self.FK_Showcase_rentrecord_ShowcaseID">
+            <End Role="showcase" EntitySet="showcases" />
+            <End Role="showcase_rentrecord" EntitySet="showcase_rentrecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Showcase_StoreID" Association="Self.FK_Showcase_StoreID">
+            <End Role="store" EntitySet="stores" />
+            <End Role="showcase" EntitySet="showcases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Showcase_rentrecord_TenantID" Association="Self.FK_Showcase_rentrecord_TenantID">
+            <End Role="tenant" EntitySet="tenants" />
+            <End Role="showcase_rentrecord" EntitySet="showcase_rentrecord" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="project_manangementModelStoreContainer" CdmEntityContainer="project_manangementEntities">
+          <EntitySetMapping Name="bookedshowcases">
+            <EntityTypeMapping TypeName="project_manangementModel.bookedshowcase">
+              <MappingFragment StoreEntitySet="bookedshowcase">
+                <ScalarProperty Name="ShowcaseID" ColumnName="ShowcaseID" />
+                <ScalarProperty Name="TenantID" ColumnName="TenantID" />
+                <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+                <ScalarProperty Name="BookingStartDate" ColumnName="BookingStartDate" />
+                <ScalarProperty Name="BookingTermTo" ColumnName="BookingTermTo" />
+                <ScalarProperty Name="Prepaid_credit" ColumnName="Prepaid_credit" />
+                <ScalarProperty Name="PrepaidDate" ColumnName="PrepaidDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customers">
+            <EntityTypeMapping TypeName="project_manangementModel.customer">
+              <MappingFragment StoreEntitySet="customer">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="DateTIMEofcreation" ColumnName="DateTIMEofcreation" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="Customer_Username" ColumnName="Customer_Username" />
+                <ScalarProperty Name="Customer_password" ColumnName="Customer_password" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dailyworkingrecords">
+            <EntityTypeMapping TypeName="project_manangementModel.dailyworkingrecord">
+              <MappingFragment StoreEntitySet="dailyworkingrecord">
+                <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+                <ScalarProperty Name="WorkedHour" ColumnName="WorkedHour" />
+                <ScalarProperty Name="Date_of_workout" ColumnName="Date_of_workout" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="products">
+            <EntityTypeMapping TypeName="project_manangementModel.product">
+              <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TenantID" ColumnName="TenantID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductFee" ColumnName="ProductFee" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="PrivateLabelItems" ColumnName="PrivateLabelItems" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="salesrecords">
+            <EntityTypeMapping TypeName="project_manangementModel.salesrecord">
+              <MappingFragment StoreEntitySet="salesrecord">
+                <ScalarProperty Name="SalesID" ColumnName="SalesID" />
+                <ScalarProperty Name="SalesDATETIME" ColumnName="SalesDATETIME" />
+                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+                <ScalarProperty Name="TotalSalesAmount" ColumnName="TotalSalesAmount" />
+                <ScalarProperty Name="Tender" ColumnName="Tender" />
+                <ScalarProperty Name="Changecost" ColumnName="Changecost" />
+                <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+                <ScalarProperty Name="Paymethod" ColumnName="Paymethod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="salesrecord_product">
+            <EntityTypeMapping TypeName="project_manangementModel.salesrecord_product">
+              <MappingFragment StoreEntitySet="salesrecord_product">
+                <ScalarProperty Name="SalesID" ColumnName="SalesID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ShowcaseID" ColumnName="ShowcaseID" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="eachFee" ColumnName="eachFee" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="showcases">
+            <EntityTypeMapping TypeName="project_manangementModel.showcase">
+              <MappingFragment StoreEntitySet="showcase">
+                <ScalarProperty Name="ShowcaseID" ColumnName="ShowcaseID" />
+                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+                <ScalarProperty Name="Standard_RentFee" ColumnName="Standard_RentFee" />
+                <ScalarProperty Name="ShowcaseType" ColumnName="ShowcaseType" />
+                <ScalarProperty Name="adv_description" ColumnName="adv_description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="showcase_product">
+            <EntityTypeMapping TypeName="project_manangementModel.showcase_product">
+              <MappingFragment StoreEntitySet="showcase_product">
+                <ScalarProperty Name="ShowcaseID" ColumnName="ShowcaseID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="stock" ColumnName="stock" />
+                <ScalarProperty Name="product_description" ColumnName="product_description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="showcase_rentrecord">
+            <EntityTypeMapping TypeName="project_manangementModel.showcase_rentrecord">
+              <MappingFragment StoreEntitySet="showcase_rentrecord">
+                <ScalarProperty Name="rentrecordID" ColumnName="rentrecordID" />
+                <ScalarProperty Name="ShowcaseID" ColumnName="ShowcaseID" />
+                <ScalarProperty Name="TenantID" ColumnName="TenantID" />
+                <ScalarProperty Name="LeaseStartDate" ColumnName="LeaseStartDate" />
+                <ScalarProperty Name="LeaseTermTo" ColumnName="LeaseTermTo" />
+                <ScalarProperty Name="RentFee" ColumnName="RentFee" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="staffs">
+            <EntityTypeMapping TypeName="project_manangementModel.staff">
+              <MappingFragment StoreEntitySet="staff">
+                <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+                <ScalarProperty Name="Staff_Name" ColumnName="Staff_Name" />
+                <ScalarProperty Name="Staff_HKIDNumber" ColumnName="Staff_HKIDNumber" />
+                <ScalarProperty Name="Staff_Username" ColumnName="Staff_Username" />
+                <ScalarProperty Name="Staff_password" ColumnName="Staff_password" />
+                <ScalarProperty Name="StaffPosition" ColumnName="StaffPosition" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="HourSalary" ColumnName="HourSalary" />
+                <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+                <ScalarProperty Name="isFulltime" ColumnName="isFulltime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stores">
+            <EntityTypeMapping TypeName="project_manangementModel.store">
+              <MappingFragment StoreEntitySet="store">
+                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tenants">
+            <EntityTypeMapping TypeName="project_manangementModel.tenant">
+              <MappingFragment StoreEntitySet="tenant">
+                <ScalarProperty Name="TenantID" ColumnName="TenantID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DateTimeofCreation" ColumnName="DateTimeofCreation" />
+                <ScalarProperty Name="Tenant_Username" ColumnName="Tenant_Username" />
+                <ScalarProperty Name="Tenant_Password" ColumnName="Tenant_Password" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Tenant_HKIDNumber" ColumnName="Tenant_HKIDNumber" />
+                <ScalarProperty Name="CommisionRate" ColumnName="CommisionRate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

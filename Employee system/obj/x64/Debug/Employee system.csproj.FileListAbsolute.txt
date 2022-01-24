@@ -1,0 +1,40 @@
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\bin\x64\Debug\Employee system.exe.config
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\bin\x64\Debug\Employee system.exe
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\bin\x64\Debug\Employee system.pdb
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\bin\x64\Debug\EntityFramework.dll
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\bin\x64\Debug\EntityFramework.xml
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\bin\x64\Debug\zh-Hant\EntityFramework.resources.dll
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee system.csprojAssemblyReference.cache
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.Cal_Salary.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.Delete_staff.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.Find_sales_record.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.Item_Infomation.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.New_Satff.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.New_Tenant.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.Saling.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.t_list.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.New_Item.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.Renting_Showcase.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.Reserve_Showcase.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.Self_item.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.Showcase_Inventory.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.Update_Staff.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.PTStaff_work.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.Staff_List.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.Showcase_List.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.Showcase_Sales_Record.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.Monthly_Statement.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.Receipt.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.Restoring.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.Form1.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.Main_menu.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.Renting_case.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.Form2.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.Properties.Resources.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.Show_Case.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee_system.Taking_Item.resources
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee system.csproj.GenerateResource.cache
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee system.csproj.CoreCompileInputs.cache
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee system.csproj.CopyComplete
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee system.exe
+C:\Users\loyee\OneDrive\桌面\Employee system\Employee system\obj\x64\Debug\Employee system.pdb

@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="project_manangementModelStoreContainer" CdmEntityContainer="project_manangementEntities">
+    <EntitySetMapping Name="bookedshowcases">
+      <EntityTypeMapping TypeName="project_manangementModel.bookedshowcase">
+        <MappingFragment StoreEntitySet="bookedshowcase">
+          <ScalarProperty Name="ShowcaseID" ColumnName="ShowcaseID" />
+          <ScalarProperty Name="TenantID" ColumnName="TenantID" />
+          <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+          <ScalarProperty Name="BookingStartDate" ColumnName="BookingStartDate" />
+          <ScalarProperty Name="BookingTermTo" ColumnName="BookingTermTo" />
+          <ScalarProperty Name="Prepaid_credit" ColumnName="Prepaid_credit" />
+          <ScalarProperty Name="PrepaidDate" ColumnName="PrepaidDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="project_manangementModel.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="DateTIMEofcreation" ColumnName="DateTIMEofcreation" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="Customer_Username" ColumnName="Customer_Username" />
+          <ScalarProperty Name="Customer_password" ColumnName="Customer_password" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dailyworkingrecords">
+      <EntityTypeMapping TypeName="project_manangementModel.dailyworkingrecord">
+        <MappingFragment StoreEntitySet="dailyworkingrecord">
+          <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+          <ScalarProperty Name="WorkedHour" ColumnName="WorkedHour" />
+          <ScalarProperty Name="Date_of_workout" ColumnName="Date_of_workout" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="project_manangementModel.product">
+        <MappingFragment StoreEntitySet="product">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TenantID" ColumnName="TenantID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductFee" ColumnName="ProductFee" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="PrivateLabelItems" ColumnName="PrivateLabelItems" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="salesrecords">
+      <EntityTypeMapping TypeName="project_manangementModel.salesrecord">
+        <MappingFragment StoreEntitySet="salesrecord">
+          <ScalarProperty Name="SalesID" ColumnName="SalesID" />
+          <ScalarProperty Name="SalesDATETIME" ColumnName="SalesDATETIME" />
+          <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+          <ScalarProperty Name="TotalSalesAmount" ColumnName="TotalSalesAmount" />
+          <ScalarProperty Name="Tender" ColumnName="Tender" />
+          <ScalarProperty Name="Changecost" ColumnName="Changecost" />
+          <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+          <ScalarProperty Name="Paymethod" ColumnName="Paymethod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="salesrecord_product">
+      <EntityTypeMapping TypeName="project_manangementModel.salesrecord_product">
+        <MappingFragment StoreEntitySet="salesrecord_product">
+          <ScalarProperty Name="SalesID" ColumnName="SalesID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ShowcaseID" ColumnName="ShowcaseID" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="eachFee" ColumnName="eachFee" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="showcases">
+      <EntityTypeMapping TypeName="project_manangementModel.showcase">
+        <MappingFragment StoreEntitySet="showcase">
+          <ScalarProperty Name="ShowcaseID" ColumnName="ShowcaseID" />
+          <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+          <ScalarProperty Name="Standard_RentFee" ColumnName="Standard_RentFee" />
+          <ScalarProperty Name="ShowcaseType" ColumnName="ShowcaseType" />
+          <ScalarProperty Name="adv_description" ColumnName="adv_description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="showcase_product">
+      <EntityTypeMapping TypeName="project_manangementModel.showcase_product">
+        <MappingFragment StoreEntitySet="showcase_product">
+          <ScalarProperty Name="ShowcaseID" ColumnName="ShowcaseID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="stock" ColumnName="stock" />
+          <ScalarProperty Name="product_description" ColumnName="product_description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="showcase_rentrecord">
+      <EntityTypeMapping TypeName="project_manangementModel.showcase_rentrecord">
+        <MappingFragment StoreEntitySet="showcase_rentrecord">
+          <ScalarProperty Name="rentrecordID" ColumnName="rentrecordID" />
+          <ScalarProperty Name="ShowcaseID" ColumnName="ShowcaseID" />
+          <ScalarProperty Name="TenantID" ColumnName="TenantID" />
+          <ScalarProperty Name="LeaseStartDate" ColumnName="LeaseStartDate" />
+          <ScalarProperty Name="LeaseTermTo" ColumnName="LeaseTermTo" />
+          <ScalarProperty Name="RentFee" ColumnName="RentFee" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="staffs">
+      <EntityTypeMapping TypeName="project_manangementModel.staff">
+        <MappingFragment StoreEntitySet="staff">
+          <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+          <ScalarProperty Name="Staff_Name" ColumnName="Staff_Name" />
+          <ScalarProperty Name="Staff_HKIDNumber" ColumnName="Staff_HKIDNumber" />
+          <ScalarProperty Name="Staff_Username" ColumnName="Staff_Username" />
+          <ScalarProperty Name="Staff_password" ColumnName="Staff_password" />
+          <ScalarProperty Name="StaffPosition" ColumnName="StaffPosition" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="HourSalary" ColumnName="HourSalary" />
+          <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+          <ScalarProperty Name="isFulltime" ColumnName="isFulltime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stores">
+      <EntityTypeMapping TypeName="project_manangementModel.store">
+        <MappingFragment StoreEntitySet="store">
+          <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tenants">
+      <EntityTypeMapping TypeName="project_manangementModel.tenant">
+        <MappingFragment StoreEntitySet="tenant">
+          <ScalarProperty Name="TenantID" ColumnName="TenantID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DateTimeofCreation" ColumnName="DateTimeofCreation" />
+          <ScalarProperty Name="Tenant_Username" ColumnName="Tenant_Username" />
+          <ScalarProperty Name="Tenant_Password" ColumnName="Tenant_Password" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Tenant_HKIDNumber" ColumnName="Tenant_HKIDNumber" />
+          <ScalarProperty Name="CommisionRate" ColumnName="CommisionRate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
